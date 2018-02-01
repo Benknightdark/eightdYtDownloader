@@ -2,12 +2,15 @@ const appUserAgent = 'Mozilla/5.0 (X11; CrOS x86_64 7520.0.0) AppleWebKit/537.36
 const ytdl = require('ytdl-core');
 const request = require("request");
 const cheerio = require("cheerio");
+const {app, dialog, shell, Menu} = require('electron')
+
 window.$ = window.jQuery = require('./assets/jquery.min.js');
 $.ajaxSetup({
   beforeSend: function(request) {
     request.setRequestHeader("User-Agent",appUserAgent);
   }
 });
+// Create default menu.
 
 document.addEventListener("keydown", function (e) {
   if (e.which === 123) { // F12 DevTools
